@@ -1,0 +1,24 @@
+.login-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*height: 80vh; */
+}
+
+.mat-card
+{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 75px 50px 75px;
+}
+
+td{
+  padding: 0px 25px 0px 25px;
+}
+
+button{
+  width: 100%;
+}

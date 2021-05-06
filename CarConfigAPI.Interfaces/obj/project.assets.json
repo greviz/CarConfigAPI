@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\grevi\\Desktop\\agh_repos\\CarConfigAPI.Interfaces\\CarConfigAPI.Interfaces.csproj",
+      "projectUniqueName": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Interfaces\\CarConfigAPI.Interfaces.csproj",
       "projectName": "CarConfigAPI.Interfaces",
-      "projectPath": "C:\\Users\\grevi\\Desktop\\agh_repos\\CarConfigAPI.Interfaces\\CarConfigAPI.Interfaces.csproj",
+      "projectPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Interfaces\\CarConfigAPI.Interfaces.csproj",
       "packagesPath": "C:\\Users\\grevi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\grevi\\Desktop\\agh_repos\\CarConfigAPI.Interfaces\\obj\\",
+      "outputPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Interfaces\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\grevi\\AppData\\Roaming\\NuGet\\NuGet.Config",

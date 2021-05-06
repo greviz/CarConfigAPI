@@ -1,0 +1,4 @@
+<div *ngIf="message" style="text-align: center" [ngClass]="message.cssClass +  ' alert-dismissible fade show'">
+  {{message.text}}
+ <a class="close" (click)="clear()"> &times; </a>
+</div>

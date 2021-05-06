@@ -1,0 +1,26 @@
+.card-container{
+  margin: 35px 100px 0 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+mat-card{
+  max-width: 384px;
+  margin: 15px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+mat-card:hover{
+  color: crimson;
+}
+
+.pick-header{
+  padding: 5px;
+  font-size: 24px;
+  text-align: center;
+}

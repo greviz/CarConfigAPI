@@ -1,0 +1,18 @@
+.register-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-card
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 50px;
+}
+td{
+  padding: 0 15px;
+}
+

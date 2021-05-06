@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b1O5Kab/94o776OpErQPjJBQOl9z9y+MyWv0VfnkQvbyO/e+3CYVznTPLEGfvb1SokTmjlRK9idWl8WM3/rvgA==",
+  "dgSpecHash": "bRWLPq7hmLittGNd2lwKNXvetAiOANkSj79mSRaGGsFUHjEAEFbHGU3tBMfBzdyZpNKKcaKzGH+hbYr3MM09jg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\grevi\\Desktop\\agh_repos\\CarConfigAPI.ViewModels\\CarConfigAPI.ViewModels.csproj",
+  "projectFilePath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.ViewModels\\CarConfigAPI.ViewModels.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

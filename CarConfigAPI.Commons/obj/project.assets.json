@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\grevi\\Desktop\\agh_repos\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj",
+      "projectUniqueName": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj",
       "projectName": "CarConfigAPI.Commons",
-      "projectPath": "C:\\Users\\grevi\\Desktop\\agh_repos\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj",
+      "projectPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj",
       "packagesPath": "C:\\Users\\grevi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\grevi\\Desktop\\agh_repos\\CarConfigAPI.Commons\\obj\\",
+      "outputPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Commons\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\grevi\\AppData\\Roaming\\NuGet\\NuGet.Config",

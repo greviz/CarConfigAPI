@@ -1,0 +1,77 @@
+<br/>
+<div class="register-div">
+  <mat-card class="mat-card">
+    <mat-card-header>
+      <mat-card-title>Tworzenie nowego konta</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="registerForm">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Login" formControlName="login" required/>
+                <mat-error *ngIf="registerForm.controls['login'].hasError('required')">
+                  Login jest <strong>wymagany</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Nazwa użytkownika" type="text" formControlName="username" required>
+                <mat-error *ngIf="registerForm.controls['username'].hasError('required')">
+                  Nazwa użytkownika jest <strong>wymagana</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Hasło" type="password" formControlName="password" required/>
+                <mat-error *ngIf="registerForm.controls['password'].hasError('minlength')">
+                  Podane hasło jest za krótkie!
+                </mat-error>
+                <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+                  Hasło jest <strong>wymagane</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Powtórz hasło" type="password" formControlName="repeatedPassword" required/>
+                <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+                  <strong>Musisz</strong> powtórzyć swoje hasło!
+                </mat-error>
+                <mat-error *ngIf="registerForm.controls['repeatedPassword'].hasError('minlength')">
+                  Podane hasło jest za krótkie!
+                </mat-error>
+                <mat-error *ngIf="registerForm.controls['repeatedPassword'].hasError('mustMatch')">
+                  Hasła się różnią!
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="E-mail" type="email" formControlName="email" required=""/>
+                <mat-error *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
+                  Wprowadź prawidłowy adres e-mail
+                </mat-error>
+                <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+                  Email jest <strong>wymagany</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <mat-divider></mat-divider>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button (click)="register()" color="primary">Zarejestruj</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
