@@ -1,0 +1,54 @@
+<div *ngIf="!configuration; then Loading else Display"></div>
+<ng-template #Loading> <mat-spinner> </mat-spinner> </ng-template>
+<ng-template #Display>
+
+  <div class="row justify-content-md-center" style="margin-top: 25px">
+    <mat-card class="col-md-5">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>assignment</mat-icon>
+        <mat-card-title style="font-size: 23px">
+          Podsumowanie konfiguracji {{configuredCar.brand}} {{configuredCar.model}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          Utworzona przez <a>{{configuredBy.username}}</a>
+        </mat-card-subtitle>
+
+      </mat-card-header>
+      <div>
+        <mat-divider></mat-divider>
+        <h4 style="text-align: center; padding-top: 5px"> Wykaz cen </h4>
+        <mat-divider></mat-divider>
+      </div>
+      <div style="margin: 15px">
+        <table>
+          <tr >
+            <td> Cena samochodu: </td> <td>&nbsp; {{configuredCar.price | currency:'PLN'}}</td>
+          </tr>
+          <tr>
+            <td> Cena wyposażenia: </td> <td>&nbsp; {{configuration.totalPrice - configuredCar.price | currency:'PLN'}}</td>
+          </tr>
+          <tr>
+            <td> Cena ogółem: </td> <td>&nbsp; {{configuration.totalPrice | currency:'PLN'}}</td>
+          </tr>
+        </table>
+      </div>
+      <mat-card-content>
+        <mat-divider></mat-divider>
+          <h4 style="text-align: center; padding-top: 5px"> Wybrane wyposażenie </h4>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item *ngFor="let part of configurationParts">
+            <mat-icon mat-list-icon>folder</mat-icon>
+            <h4 mat-line> {{part.secondaryType}}</h4>
+            <p mat-line> {{part.name}} &nbsp;&nbsp; <strong>{{part.price | currency:'PLN'}} </strong> </p>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="row justify-content-md-center" style="margin-top: 20px;">
+    <button mat-raised-button class="col-md-4" [routerLink]="['/dashboard']" style="padding: 5px"> <mat-icon>checked_circle</mat-icon> Zakończ </button>
+  </div>
+</ng-template>
+

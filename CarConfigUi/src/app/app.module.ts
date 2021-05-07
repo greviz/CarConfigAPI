@@ -22,6 +22,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CarPickerComponent } from './car-picker/car-picker.component';
 import { ConfiguratorComponent } from './configurator/configurator.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { ViewConfigurationsComponent } from './view-configurations/view-configurations.component';
+import { PreviewConfigurationComponent } from './preview-configuration/preview-configuration.component';
 
 registerLocaleData(localePl);
 
@@ -34,6 +37,9 @@ registerLocaleData(localePl);
     DashboardComponent,
     CarPickerComponent,
     ConfiguratorComponent,
+    ViewProfileComponent,
+    ViewConfigurationsComponent,
+    PreviewConfigurationComponent,
     AlertComponent
   ],
   imports: [

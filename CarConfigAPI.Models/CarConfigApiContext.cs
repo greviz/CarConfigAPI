@@ -22,7 +22,7 @@ namespace CarConfigAPI
         public virtual DbSet<AvailableCarParts> AvailableCarParts { get; set; }
         public virtual DbSet<Cars> Cars { get; set; }
         public virtual DbSet<ConfigurationParts> ConfigurationParts { get; set; }
-        public virtual DbSet<Configurations> Configurations { get; set; }
+        public virtual DbSet<ConfigurationViewModel> Configurations { get; set; }
         public virtual DbSet<Parts> Parts { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
@@ -153,7 +153,7 @@ namespace CarConfigAPI
                     .HasConstraintName("fk_configuration_parts_part");
             });
 
-            modelBuilder.Entity<Configurations>(entity =>
+            modelBuilder.Entity<ConfigurationViewModel>(entity =>
             {
                 entity.ToTable("configurations");
 

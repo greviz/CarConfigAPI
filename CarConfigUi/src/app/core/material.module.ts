@@ -42,7 +42,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSortModule,
     MatPaginatorModule,
     MatBadgeModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   exports: [
     CommonModule,

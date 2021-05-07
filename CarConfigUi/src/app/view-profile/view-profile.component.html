@@ -1,0 +1,56 @@
+<div *ngIf="!userToPreview; then Loading else Display"></div>
+<ng-template #Loading> <mat-spinner> </mat-spinner> </ng-template>
+
+<ng-template #Display>
+  <div class="row justify-content-center" style="margin-top: 25px">
+    <mat-card class="col-md-4">
+      <mat-card-header>
+        <mat-icon mat-card-avatar class="user-icon-64">person</mat-icon>
+        <mat-card-title>
+          {{userToPreview.username}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list style="border: 1px solid rgba(255,255,255,0.1);">
+          <mat-list-item>
+            Dołączył(a) {{userToPreview.createdOn | date}}.
+          </mat-list-item>
+          <mat-list-item>
+            E-mail: {{userToPreview.email}}
+          </mat-list-item>
+          <mat-list-item>
+            Skomentował(a) {{userCommentCount}} razy.
+          </mat-list-item>
+        </mat-list>
+        <mat-expansion-panel style="background-color: #69696969; margin-top: 15px;">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Konfiguracje ({{userConfigurations.length}})
+            </mat-panel-title>
+            <mat-panel-description>
+              Lista konfiguracji użytkownika
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-list style="margin-top: 15px;width: 100%">
+            <mat-list-item *ngFor="let conf of userConfigurations">
+              <mat-card-title style="font-size: 20px; width: 100%">
+                <mat-icon>arrow_forward_ios</mat-icon>
+                {{conf.car.brand}}
+                <a id="a-goto-preview"
+                   ngbTooltip="Kliknij aby zobaczyć konfigurację!"
+                   [routerLink]="['/preview']"
+                   [queryParams]="{configId: conf.id}">{{conf.car.model}}
+                  <mat-icon style="font-size: 22px;height: 45px;">pageview</mat-icon></a>
+                <i style="font-size: 16px; padding-left: 50px;">
+                  {{conf.totalPrice | currency:'PLN'}}
+                </i>
+                <a style="font-size: 12px; float: right; line-height: 2.8;">{{conf.createdOn | date}}</a>
+              </mat-card-title>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</ng-template>

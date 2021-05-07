@@ -13,7 +13,7 @@ namespace CarConfigAPI
         public int ConfigurationId { get; set; }
         public int PartId { get; set; }
 
-        public virtual Configurations Configuration { get; set; }
+        public virtual ConfigurationViewModel Configuration { get; set; }
         public virtual Parts Part { get; set; }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj": {}
+    "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj": {}
   },
   "projects": {
-    "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj": {
+    "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj",
+        "projectUniqueName": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj",
         "projectName": "CarConfigAPI.Commons",
-        "projectPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj",
+        "projectPath": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Commons\\CarConfigAPI.Commons.csproj",
         "packagesPath": "C:\\Users\\grevi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Commons\\obj\\",
+        "outputPath": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Commons\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\grevi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

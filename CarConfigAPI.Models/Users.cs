@@ -11,7 +11,7 @@ namespace CarConfigAPI
     {
         public Users()
         {
-            Configurations = new HashSet<Configurations>();
+            Configurations = new HashSet<ConfigurationViewModel>();
         }
 
         public int Id { get; set; }
@@ -21,6 +21,6 @@ namespace CarConfigAPI
         public string Username { get; set; }
         public DateTime CreatedOn { get; set; }
 
-        public virtual ICollection<Configurations> Configurations { get; set; }
+        public virtual ICollection<ConfigurationViewModel> Configurations { get; set; }
     }
 }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Maps\\CarConfigAPI.Maps.csproj",
+      "projectUniqueName": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Maps\\CarConfigAPI.Maps.csproj",
       "projectName": "CarConfigAPI.Maps",
-      "projectPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Maps\\CarConfigAPI.Maps.csproj",
+      "projectPath": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Maps\\CarConfigAPI.Maps.csproj",
       "packagesPath": "C:\\Users\\grevi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Maps\\obj\\",
+      "outputPath": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Maps\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\grevi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -6,8 +6,8 @@ import {Comment} from "../models/comment.model"
 
 @Injectable({providedIn: "root"})
 export class ConfigurationService {
-  public API = '//localhost:8080/configuration';
-  public CommentAPI = '//localhost:8080/comment'
+  public API = 'https://localhost:44309/configuration';
+  public CommentAPI = 'https://localhost:44309/comment'
 
   constructor(private http: HttpClient) {
   }
@@ -17,6 +17,7 @@ export class ConfigurationService {
   }
 
   saveConfiguration(body): Observable<any> {
+    console.log(body);
     return this.http.post(this.API + '/save', body);
   }
 

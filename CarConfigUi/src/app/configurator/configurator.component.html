@@ -104,7 +104,9 @@
         </mat-expansion-panel-header>
         <mat-radio-group [(ngModel)]="chosenColor" class="radio-group-wrapper" (change)="updatePrice()">
           <input *ngIf="chosenColor.price == 0"
+                 id="picker"
                  style="height: 35px; width: 60px;"
+                 [cpPositionOffset]= "-300"
                  [value]="pickedColor"
                  [style.background]="pickedColor"
                  [cpAlphaChannel]="'disabled'"

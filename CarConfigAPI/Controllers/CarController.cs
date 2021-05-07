@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace CarConfigAPI.Controllers
 {
-    [Route("/car")]
     [ApiController]
 
     public class CarController : ControllerBase
@@ -18,7 +17,13 @@ namespace CarConfigAPI.Controllers
             dbContext = new CarConfigApiContext();
         }
 
-        [HttpGet("allnew")]
+        [HttpGet("/car/{id}")]
+        public Cars getCarById(int id)
+        {
+            return dbContext.Cars.Where(c => c.Id == id).FirstOrDefault();
+        }
+
+        [HttpGet("/car/allnew")]
         public List<Cars> getNewCars()
         {
             return dbContext.Cars.Where(c => c.Unused == true).ToList();

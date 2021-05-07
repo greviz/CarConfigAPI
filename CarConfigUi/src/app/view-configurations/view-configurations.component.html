@@ -1,0 +1,53 @@
+<div *ngIf="!configurations || !commentsLoaded; then Loading else Display"></div>
+<ng-template #Loading> <mat-spinner> </mat-spinner> </ng-template>
+
+<ng-template #Display>
+<div class="cards-wrapper">
+  <mat-card class="col-md-7" *ngFor="let c of obs | async">
+    <mat-card-header>
+      <mat-icon mat-card-avatar id="av-car">directions_car</mat-icon>
+      <mat-card-title >
+        {{c.car.brand}} <a id="a-goto-preview" style="text-decoration: none; color: white;"
+                           ngbTooltip="Kliknij aby zobaczyć konfigurację!"
+                           [routerLink]="['/preview']"
+                           [queryParams]="{configId: c.id}"> {{c.car.model}}
+        <mat-icon style="font-size: 25px;height: 45px;">pageview</mat-icon></a>
+      </mat-card-title>
+      <span class="fill-remaining-space"></span>
+      <div id="conf-date">{{c.createdOn | date}} by <a [routerLink]="['/profile']"
+                                                       [queryParams]="{userId: c.user.id}"
+                                                       style="color: azure;"> {{c.user.username}}</a>
+      </div>
+    </mat-card-header>
+    <mat-card-content style="margin-top: -15px; padding-left: 48px">
+      Kwota ogółem: {{c.totalPrice | currency:'PLN'}} &nbsp;
+      Cena części: {{c.totalPrice - c.car.price |currency:'PLN'}}
+      <a style="padding-left: 100px;">{{c.description}}</a>
+    </mat-card-content>
+    <mat-card-footer style="font-size: 13px">
+      <mat-divider></mat-divider>
+      <div class="d-flex" style="padding-bottom: 5px;"><a (click)="toggleComments(c.id)" style="margin-left: 15px"> Pokaż komentarze ({{c.comments.length}}) ...</a> </div>
+      <div id="com-{{c.id}}" style="display: none; margin-left: 15px">
+        <div *ngIf="c.comments.length > 0; then Comments else NoComments"></div>
+        <ng-template #Comments>
+          <div *ngFor="let comment of c.comments" id="com-display">
+            <a>{{comment.createdBy.username}}</a>: {{comment.text}} <span class="fill-remaining-space"></span> <div id="com-date">{{comment.createdOn | date}}</div>
+          </div>
+          <mat-divider></mat-divider>
+        </ng-template>
+        <ng-template #NoComments>
+          <div style="font-weight: 300"> Brak komentarzy. Bądź pierwszy!</div>
+        </ng-template>
+        <mat-form-field style="width: 75%;">
+          <mat-label> Dodaj komentarz </mat-label>
+          <input id="in-{{c.id}}"  matInput="text" maxlength="70" />
+        </mat-form-field>
+        <button mat-flat-button (click)="addComment(c)">Dodaj</button>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+  <mat-paginator class="col-md-10" [pageSizeOptions]="[6,12,18,24]"></mat-paginator>
+</div>
+
+</ng-template>
+

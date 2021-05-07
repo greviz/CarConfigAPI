@@ -10,6 +10,7 @@ import {AuthenticationService} from "../services/authentication.service";
 import {User} from "../models/user.model";
 import {ConfigurationService} from "../services/configuration.service";
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DatePipe, formatDate } from '@angular/common';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class ConfiguratorComponent implements OnInit {
   cfg: Configuration;
   isPrivate: boolean;
 
-  pickedColor: string = "#FFFFFF";
+  pickedColor: string = "#F0F0F0";
 
   generatePreset: boolean;
 
@@ -450,13 +451,13 @@ export class ConfiguratorComponent implements OnInit {
   }
 
   save(){
-
+    console.log(this.chosenSuspension);
     const requestBody ={
       totalPrice: this.pickedCar.price + this.partsPrice,
-      createdOn: Date.now(),
+      //createdOn: formatDate(Date.now(), ),d
       description: this.desc,
-      user: this.user,
-      car: this.pickedCar,
+      user: this.user.id,
+      car: this.pickedCar.id,
       pickedParts: this.pickedParts,
       isPrivate: this.isPrivate,
     };
