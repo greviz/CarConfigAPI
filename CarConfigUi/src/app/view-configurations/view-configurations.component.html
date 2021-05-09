@@ -15,8 +15,8 @@
       </mat-card-title>
       <span class="fill-remaining-space"></span>
       <div id="conf-date">{{c.createdOn | date}} by <a [routerLink]="['/profile']"
-                                                       [queryParams]="{userId: c.user.id}"
-                                                       style="color: azure;"> {{c.user.username}}</a>
+                                                       [queryParams]="{userId: c.createdByNavigation.id}"
+                                                       style="color: azure;"> {{c.createdByNavigation.username}}</a>
       </div>
     </mat-card-header>
     <mat-card-content style="margin-top: -15px; padding-left: 48px">
@@ -31,7 +31,7 @@
         <div *ngIf="c.comments.length > 0; then Comments else NoComments"></div>
         <ng-template #Comments>
           <div *ngFor="let comment of c.comments" id="com-display">
-            <a>{{comment.createdBy.username}}</a>: {{comment.text}} <span class="fill-remaining-space"></span> <div id="com-date">{{comment.createdOn | date}}</div>
+            <a>{{comment.createdByNavigation.username}}</a>: {{comment.text}} <span class="fill-remaining-space"></span> <div id="com-date">{{comment.createdOn | date}}</div>
           </div>
           <mat-divider></mat-divider>
         </ng-template>

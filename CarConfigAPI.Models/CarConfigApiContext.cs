@@ -21,8 +21,10 @@ namespace CarConfigAPI
 
         public virtual DbSet<AvailableCarParts> AvailableCarParts { get; set; }
         public virtual DbSet<Cars> Cars { get; set; }
+        public virtual DbSet<Comments> Comments { get; set; }
+        public virtual DbSet<ConfigurationComments> ConfigurationComments { get; set; }
         public virtual DbSet<ConfigurationParts> ConfigurationParts { get; set; }
-        public virtual DbSet<ConfigurationViewModel> Configurations { get; set; }
+        public virtual DbSet<Configurations> Configurations { get; set; }
         public virtual DbSet<Parts> Parts { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
@@ -30,7 +32,6 @@ namespace CarConfigAPI
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseMySql("server=localhost;database=carconfigapi;user=root;pwd=root", x => x.ServerVersion("10.4.18-mariadb"));
             }
         }
@@ -120,6 +121,73 @@ namespace CarConfigAPI
                 entity.Property(e => e.Unused).HasColumnName("unused");
             });
 
+            modelBuilder.Entity<Comments>(entity =>
+            {
+                entity.ToTable("comments");
+
+                entity.HasIndex(e => e.CreatedBy)
+                    .HasName("fk_createdBy");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasColumnType("int(128)")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.CreatedBy)
+                    .HasColumnName("createdBy")
+                    .HasColumnType("int(128)");
+
+                entity.Property(e => e.CreatedOn)
+                    .HasColumnName("createdOn")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasColumnName("text")
+                    .HasColumnType("varchar(256)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_polish_ci");
+
+                entity.HasOne(d => d.CreatedByNavigation)
+                    .WithMany(p => p.Comments)
+                    .HasForeignKey(d => d.CreatedBy)
+                    .HasConstraintName("fk_createdBy");
+            });
+
+            modelBuilder.Entity<ConfigurationComments>(entity =>
+            {
+                entity.ToTable("configuration_comments");
+
+                entity.HasIndex(e => e.CommentId)
+                    .HasName("fk_commentid");
+
+                entity.HasIndex(e => e.ConfigurationId)
+                    .HasName("fk_configurationid");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasColumnType("int(128)")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.CommentId)
+                    .HasColumnName("comment_id")
+                    .HasColumnType("int(128)");
+
+                entity.Property(e => e.ConfigurationId)
+                    .HasColumnName("configuration_id")
+                    .HasColumnType("int(128)");
+
+                entity.HasOne(d => d.Comment)
+                    .WithMany(p => p.ConfigurationComments)
+                    .HasForeignKey(d => d.CommentId)
+                    .HasConstraintName("fk_commentid");
+
+                entity.HasOne(d => d.Configuration)
+                    .WithMany(p => p.ConfigurationComments)
+                    .HasForeignKey(d => d.ConfigurationId)
+                    .HasConstraintName("fk_configurationid");
+            });
+
             modelBuilder.Entity<ConfigurationParts>(entity =>
             {
                 entity.ToTable("configuration_parts");
@@ -153,7 +221,7 @@ namespace CarConfigAPI
                     .HasConstraintName("fk_configuration_parts_part");
             });
 
-            modelBuilder.Entity<ConfigurationViewModel>(entity =>
+            modelBuilder.Entity<Configurations>(entity =>
             {
                 entity.ToTable("configurations");
 
@@ -210,8 +278,7 @@ namespace CarConfigAPI
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
-                    .HasColumnType("int(128)")
-                    .ValueGeneratedOnAdd();
+                    .HasColumnType("int(128)");
 
                 entity.Property(e => e.Name)
                     .IsRequired()

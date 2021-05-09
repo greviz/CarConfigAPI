@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -14,7 +14,7 @@ namespace CarConfigAPI
         public Cars()
         {
             AvailableCarParts = new HashSet<AvailableCarParts>();
-            Configurations = new HashSet<ConfigurationViewModel>();
+            Configurations = new HashSet<Configurations>();
         }
 
         public int Id { get; set; }
@@ -31,6 +31,6 @@ namespace CarConfigAPI
         public virtual ICollection<AvailableCarParts> AvailableCarParts { get; set; }
         [JsonIgnore]
         [IgnoreDataMember]
-        public virtual ICollection<ConfigurationViewModel> Configurations { get; set; }
+        public virtual ICollection<Configurations> Configurations { get; set; }
     }
 }

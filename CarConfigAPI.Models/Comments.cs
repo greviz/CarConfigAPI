@@ -9,27 +9,21 @@ using System.Text.Json.Serialization;
 
 namespace CarConfigAPI
 {
-    public partial class Configurations
+    public partial class Comments
     {
-        public Configurations()
+        public Comments()
         {
             ConfigurationComments = new HashSet<ConfigurationComments>();
-            ConfigurationParts = new List<ConfigurationParts>();
         }
 
         public int Id { get; set; }
+        public string Text { get; set; }
         public DateTime CreatedOn { get; set; }
-        public string Description { get; set; }
-        public int TotalPrice { get; set; }
-        public bool Private { get; set; }
-        public int CarId { get; set; }
         public int CreatedBy { get; set; }
 
-        public virtual Cars Car { get; set; }
         public virtual Users CreatedByNavigation { get; set; }
         [JsonIgnore]
         [IgnoreDataMember]
         public virtual ICollection<ConfigurationComments> ConfigurationComments { get; set; }
-        public virtual List<ConfigurationParts> ConfigurationParts { get; set; }
     }
 }

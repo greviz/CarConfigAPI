@@ -4,13 +4,10 @@ using System.Text;
 
 namespace CarConfigAPI.ViewModels
 {
-    public class ConfigurationsViewModel
+    public class CustomRequestBody
     {
-        public int totalPrice { get; set; }
-        public string description { get; set; }
-        public int user { get; set; }
-        public int car { get; set; }
-        public List<Parts> pickedParts { get; set; }
-        public bool isPrivate { get; set; }
+        public Configurations configuration { get; set; }
+        public Comments comment { get; set; }
+
     }
 }

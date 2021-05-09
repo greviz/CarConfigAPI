@@ -26,6 +26,7 @@ export class ViewConfigurationsComponent implements OnInit, OnDestroy {
               private changeDetectorRef: ChangeDetectorRef) {
 
     this.configurationService.getAllConfigurations().subscribe( data =>{
+      console.log(data);
       this.configurations = data;
     }, error1 => {},
       () => {
@@ -50,13 +51,12 @@ export class ViewConfigurationsComponent implements OnInit, OnDestroy {
 
   addComment(conf: Configuration){
     let com: Comment = {text: (<HTMLInputElement>document.getElementById("in-"+conf.id)).value,
-                        createdOn: Date.now(),
-                        createdBy: this.authService.currentUserValue};
+                        createdByNavigation: this.authService.currentUserValue};
     console.log(typeof(com) + " a " + typeof(conf) );
 
     const body = {
-      configuration_id: conf,
-      comment_id: com,
+      configuration: conf,
+      comment: com,
     };
 
 
@@ -71,6 +71,7 @@ export class ViewConfigurationsComponent implements OnInit, OnDestroy {
     for(let c of this.configurations)
     {
       this.configurationService.getCommentsForConfigurationId(c.id).subscribe( x=> {
+        console.log(x);
           c.comments = x;
         }, error1 => {}, ()=>{ this.commentsLoaded = true}
       );

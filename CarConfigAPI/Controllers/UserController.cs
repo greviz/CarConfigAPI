@@ -44,5 +44,11 @@ namespace CarConfigAPI.Controllers
 
             return Accepted();
         }
+
+        [HttpGet("view/{userId}")]
+        public ActionResult<Users> getUserById(int userId)
+        {
+            return db.Users.Where(u => u.Id == userId).FirstOrDefault();
+        }
     }
 }

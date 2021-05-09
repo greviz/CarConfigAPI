@@ -18,7 +18,7 @@ namespace CarConfigAPI.Controllers
         }
 
         [HttpPost("/configuration/save")]
-        public int saveConfiguration([FromBody] ConfigurationViewModel json)
+        public int saveConfiguration([FromBody] Configurations json)
         {
             json.CreatedOn = DateTime.Now;
             List<ConfigurationParts> partsIds = json.ConfigurationParts;
@@ -27,8 +27,8 @@ namespace CarConfigAPI.Controllers
             json.Car = null;
             json.CreatedByNavigation = null;
             json.ConfigurationParts = null;
-            dbContext.Configurations.Add(json);
 
+            dbContext.Configurations.Add(json);
             dbContext.SaveChanges();
 
             foreach (ConfigurationParts cp in partsIds)
@@ -47,9 +47,9 @@ namespace CarConfigAPI.Controllers
 
 
         [HttpGet("/configuration/{id}")]
-        public ActionResult<ConfigurationViewModel> getConfigurationById(int id)
+        public ActionResult<Configurations> getConfigurationById(int id)
         {
-            ConfigurationViewModel x = dbContext.Configurations.Where(c => c.Id == id).FirstOrDefault();
+            Configurations x = dbContext.Configurations.Where(c => c.Id == id).FirstOrDefault();
             x.CreatedByNavigation = dbContext.Users.Where(u => u.Id == x.CreatedBy).FirstOrDefault();
             x.Car = dbContext.Cars.Where(c => c.Id == x.CarId).FirstOrDefault();
 
@@ -57,15 +57,30 @@ namespace CarConfigAPI.Controllers
         }
 
         [HttpGet("/configuration/user/{id}")]
-        public ActionResult<List<ConfigurationViewModel>> getConfigurationsByUserId(int id)
+        public ActionResult<List<Configurations>> getConfigurationsByUserId(int id)
         {
-            return dbContext.Configurations.Where(c => c.CreatedBy == id).ToList();
+            List<Configurations> foundConfigurations = dbContext.Configurations.Where(c => c.CreatedBy == id).ToList();
+
+            foreach(Configurations config in foundConfigurations)
+            {
+                config.Car = dbContext.Cars.Where(c => c.Id == config.CarId).FirstOrDefault();
+            }
+
+            return foundConfigurations;
         }
 
         [HttpGet("/configuration/all")]
-        public ActionResult<List<ConfigurationViewModel>> getAllConfigurations()
+        public ActionResult<List<Configurations>> getAllConfigurations()
         {
-            return dbContext.Configurations.ToList();
+            List<Configurations> foundConfigurations = dbContext.Configurations.ToList();
+
+            foreach (Configurations config in foundConfigurations)
+            {
+                config.Car = dbContext.Cars.Where(c => c.Id == config.CarId).FirstOrDefault();
+                config.CreatedByNavigation = dbContext.Users.Where(u => u.Id == config.CreatedBy).FirstOrDefault();
+            }
+
+            return foundConfigurations;
         }
 
         [HttpGet("/configuration/{id}/parts")]

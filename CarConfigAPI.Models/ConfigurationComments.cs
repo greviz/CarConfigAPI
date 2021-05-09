@@ -7,13 +7,13 @@ using System.Collections.Generic;
 
 namespace CarConfigAPI
 {
-    public partial class ConfigurationParts
+    public partial class ConfigurationComments
     {
         public int Id { get; set; }
         public int ConfigurationId { get; set; }
-        public int PartId { get; set; }
+        public int CommentId { get; set; }
 
+        public virtual Comments Comment { get; set; }
         public virtual Configurations Configuration { get; set; }
-        public virtual Parts Part { get; set; }
     }
 }

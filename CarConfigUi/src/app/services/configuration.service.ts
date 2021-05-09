@@ -7,7 +7,7 @@ import {Comment} from "../models/comment.model"
 @Injectable({providedIn: "root"})
 export class ConfigurationService {
   public API = 'https://localhost:44309/configuration';
-  public CommentAPI = 'https://localhost:44309/comment'
+  public CommentAPI = 'https://localhost:44309/comment';
 
   constructor(private http: HttpClient) {
   }
