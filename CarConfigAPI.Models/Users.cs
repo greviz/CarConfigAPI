@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -21,6 +23,8 @@ namespace CarConfigAPI
         public string Username { get; set; }
         public DateTime CreatedOn { get; set; }
 
+        [JsonIgnore]
+        [IgnoreDataMember]
         public virtual ICollection<ConfigurationViewModel> Configurations { get; set; }
     }
 }

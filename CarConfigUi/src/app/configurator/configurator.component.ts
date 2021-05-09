@@ -451,15 +451,14 @@ export class ConfiguratorComponent implements OnInit {
   }
 
   save(){
-    console.log(this.chosenSuspension);
     const requestBody ={
-      totalPrice: this.pickedCar.price + this.partsPrice,
+      TotalPrice: this.pickedCar.price + this.partsPrice,
       //createdOn: formatDate(Date.now(), ),d
-      description: this.desc,
-      user: this.user.id,
-      car: this.pickedCar.id,
-      pickedParts: this.pickedParts,
-      isPrivate: this.isPrivate,
+      Description: this.desc,
+      CreatedByNavigation: this.user,
+      Car: this.pickedCar,
+      ConfigurationParts: this.pickedParts,
+      Private: this.isPrivate,
     };
 
     this.configurationService.saveConfiguration(requestBody).subscribe(

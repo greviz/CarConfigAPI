@@ -33,15 +33,6 @@ namespace CarConfigAPI.Controllers
             }
             return output;
         }
-        //[HttpGet("car/{id}")]
-        //public ActionResult<List<Parts>> getPartsByCarId(int id)
-        //{
-        //    var query = from part in dbContext.Parts
-        //                where part.AvailableCarParts.Any(cp => cp.CarId == id)
-        //                select part;
-        //    //dbContext.Parts.SelectMany<>
-        //    return Ok;
 
-        //}
     }
 }

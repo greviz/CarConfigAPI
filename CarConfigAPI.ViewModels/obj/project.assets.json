@@ -1021,11 +1021,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.ViewModels\\CarConfigAPI.ViewModels.csproj",
+      "projectUniqueName": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.ViewModels\\CarConfigAPI.ViewModels.csproj",
       "projectName": "CarConfigAPI.ViewModels",
-      "projectPath": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.ViewModels\\CarConfigAPI.ViewModels.csproj",
+      "projectPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.ViewModels\\CarConfigAPI.ViewModels.csproj",
       "packagesPath": "C:\\Users\\grevi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.ViewModels\\obj\\",
+      "outputPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.ViewModels\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\grevi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1042,8 +1042,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Models\\CarConfigAPI.Models.csproj": {
-              "projectPath": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Models\\CarConfigAPI.Models.csproj"
+            "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Models\\CarConfigAPI.Models.csproj": {
+              "projectPath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Models\\CarConfigAPI.Models.csproj"
             }
           }
         }
@@ -1072,7 +1072,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

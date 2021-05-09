@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ORru7/YJf2hRztb4VLA53A5m3RQektZZBRbs7WhbwbKs70FIuc7LSpDr/AXu0FRvakhXOZ10L/i7deyhrU53UQ==",
+  "dgSpecHash": "F2DAP743QPqICchx0cBm6ISWcz2DvfJ6IW8mH5rhyUvVAXBzHyFhTn7eWOCgHFBW4exIUvlwzcCfZtmuZY4zhw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\grevi\\Desktop\\agh studia\\CarConfigAPI\\CarConfigAPI.Models\\CarConfigAPI.Models.csproj",
+  "projectFilePath": "C:\\Users\\grevi\\Desktop\\CarConfigAPI\\CarConfigAPI.Models\\CarConfigAPI.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\grevi\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.14\\microsoft.aspnetcore.jsonpatch.3.1.14.nupkg.sha512",
     "C:\\Users\\grevi\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.14\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.14.nupkg.sha512",

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
@@ -13,9 +14,10 @@ namespace CarConfigAPI
     {
         public ConfigurationViewModel()
         {
-            ConfigurationParts = new HashSet<ConfigurationParts>();
+            ConfigurationParts = new List<ConfigurationParts>();
         }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public DateTime CreatedOn { get; set; }
         public string Description { get; set; }
@@ -26,8 +28,6 @@ namespace CarConfigAPI
 
         public virtual Cars Car { get; set; }
         public virtual Users CreatedByNavigation { get; set; }
-        [JsonIgnore]
-        [IgnoreDataMember]
-        public virtual ICollection<ConfigurationParts> ConfigurationParts { get; set; }
+        public virtual List<ConfigurationParts> ConfigurationParts { get; set; }
     }
 }

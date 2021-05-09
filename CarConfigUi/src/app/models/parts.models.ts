@@ -59,6 +59,7 @@ export interface Car {
 }
 
 export interface Configuration{
+  createdByNavigation: User;
   id: number;
   createdOn: any;
   description: string;

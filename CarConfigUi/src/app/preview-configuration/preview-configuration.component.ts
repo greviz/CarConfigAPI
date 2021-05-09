@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵCompiler_compileModuleSync__POST_R3__ } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 import {Car, Configuration, Part} from "../models/parts.models";
@@ -35,10 +35,17 @@ export class PreviewConfigurationComponent implements OnInit {
 
   getConfiguration(id: number){
     this.configurationService.getConfigurationById(id).subscribe( c => {
+      console.log(c);
       this.configuration = c;
-      this.configuredBy = c.user;
+      this.configuredBy = c.createdByNavigation;
       this.configuredCar = c.car;
     });
+  }
+  getUser(id: number){
+
+  }
+  getCar(id: number){
+    
   }
   getParts(id: number){
     this.configurationService.getConfigurationPartsByConfigurationId(id).subscribe(parts =>{

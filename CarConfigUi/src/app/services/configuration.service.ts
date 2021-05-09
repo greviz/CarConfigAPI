@@ -17,7 +17,6 @@ export class ConfigurationService {
   }
 
   saveConfiguration(body): Observable<any> {
-    console.log(body);
     return this.http.post(this.API + '/save', body);
   }
 

@@ -165,7 +165,8 @@ namespace CarConfigAPI
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
-                    .HasColumnType("int(128)");
+                    .HasColumnType("int(128)")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.CarId)
                     .HasColumnName("car_id")
@@ -209,7 +210,8 @@ namespace CarConfigAPI
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
-                    .HasColumnType("int(128)");
+                    .HasColumnType("int(128)")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
