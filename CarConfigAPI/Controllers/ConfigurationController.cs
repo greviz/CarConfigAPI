@@ -1,9 +1,8 @@
-﻿using CarConfigAPI.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using CarConfigAPI.Services;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarConfigAPI.Controllers
 {
@@ -11,92 +10,41 @@ namespace CarConfigAPI.Controllers
     [ApiController]
     public class ConfigurationController : ControllerBase
     {
-        CarConfigApiContext dbContext;
-        public ConfigurationController()
+        public readonly ConfigurationService configurationService;
+        public ConfigurationController(ConfigurationService configurationService)
         {
-            dbContext = new CarConfigApiContext();
+            this.configurationService = configurationService;
         }
 
         [HttpPost("/configuration/save")]
-        public int saveConfiguration([FromBody] Configurations json)
+        public int saveConfiguration([FromBody] Configurations body)
         {
-            json.CreatedOn = DateTime.Now;
-            List<ConfigurationParts> partsIds = json.ConfigurationParts;
-            json.CarId = json.Car.Id;
-            json.CreatedBy = json.CreatedByNavigation.Id;
-            json.Car = null;
-            json.CreatedByNavigation = null;
-            json.ConfigurationParts = null;
-
-            dbContext.Configurations.Add(json);
-            dbContext.SaveChanges();
-
-            foreach (ConfigurationParts cp in partsIds)
-            {
-                ConfigurationParts temp = new ConfigurationParts
-                {
-                    ConfigurationId = json.Id,
-                    PartId = cp.Id
-                };
-                dbContext.ConfigurationParts.Add(temp);
-            }
-            dbContext.SaveChanges();
-
-            return json.Id;
+            return configurationService.SaveConfiguration(body);
         }
 
 
         [HttpGet("/configuration/{id}")]
         public ActionResult<Configurations> getConfigurationById(int id)
         {
-            Configurations x = dbContext.Configurations.Where(c => c.Id == id).FirstOrDefault();
-            x.CreatedByNavigation = dbContext.Users.Where(u => u.Id == x.CreatedBy).FirstOrDefault();
-            x.Car = dbContext.Cars.Where(c => c.Id == x.CarId).FirstOrDefault();
-
-            return x;
+            return configurationService.GetConfigurationById(id);
         }
 
         [HttpGet("/configuration/user/{id}")]
         public ActionResult<List<Configurations>> getConfigurationsByUserId(int id)
         {
-            List<Configurations> foundConfigurations = dbContext.Configurations.Where(c => c.CreatedBy == id).ToList();
-
-            foreach(Configurations config in foundConfigurations)
-            {
-                config.Car = dbContext.Cars.Where(c => c.Id == config.CarId).FirstOrDefault();
-            }
-
-            return foundConfigurations;
+            return configurationService.GetConfigurationsByUserId(id);
         }
 
         [HttpGet("/configuration/all")]
         public ActionResult<List<Configurations>> getAllConfigurations()
         {
-            List<Configurations> foundConfigurations = dbContext.Configurations.ToList();
-
-            foreach (Configurations config in foundConfigurations)
-            {
-                config.Car = dbContext.Cars.Where(c => c.Id == config.CarId).FirstOrDefault();
-                config.CreatedByNavigation = dbContext.Users.Where(u => u.Id == config.CreatedBy).FirstOrDefault();
-            }
-
-            return foundConfigurations;
+            return configurationService.GetAllConfigurations();
         }
 
         [HttpGet("/configuration/{id}/parts")]
         public ActionResult<List<Parts>> getConfigurationPartsByConfigurationId(int id)
         {
-            List<ConfigurationParts> ids = dbContext.ConfigurationParts.Where(c => c.ConfigurationId == id).ToList();
-            List<Parts> output = new List<Parts>();
-            foreach (ConfigurationParts part in ids)
-            {
-                Parts partById = dbContext.Parts.Where(p => p.Id == part.PartId).FirstOrDefault();
-                if (partById != null)
-                {
-                    output.Add(partById);
-                }
-            }
-            return output;
+            return configurationService.GetConfigurationPartsByConfigurationId(id);
         }
     }
 }

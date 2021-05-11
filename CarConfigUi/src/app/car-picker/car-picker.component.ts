@@ -15,7 +15,6 @@ export class CarPickerComponent implements OnInit {
 
   constructor(private carService: CarService, private router: Router) {
     this.fetchNewCars();
-    //this.fetchUsedCars();
   }
 
   ngOnInit() {
@@ -30,12 +29,6 @@ export class CarPickerComponent implements OnInit {
   fetchNewCars(){
     this.carService.getCarByNewIsTrue().subscribe((data: Car[]) =>{
       this.newCars = data;
-    });
-  }
-
-  fetchUsedCars(){
-    this.carService.getCarByNewIsFalse().subscribe((data: Car[]) =>{
-      this.usedCars = data;
     });
   }
 }

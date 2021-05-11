@@ -19,9 +19,4 @@ export class CarService {
     return this.http.get<Car[]>(this.userAPI + '/allnew');
   }
 
-  getCarByNewIsFalse(): Observable<Car[]>{
-    return this.http.get<Car[]>(this.userAPI+'/allnew');
-  }
-
-
 }

@@ -1,32 +1,29 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CarConfigAPI.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarConfigAPI.Controllers
 {
     [ApiController]
-
     public class CarController : ControllerBase
     {
-        CarConfigApiContext dbContext;
-        public CarController()
+        public readonly CarService carService;
+        public CarController(CarService carService)
         {
-            dbContext = new CarConfigApiContext();
+            this.carService = carService;
         }
 
         [HttpGet("/car/{id}")]
         public Cars getCarById(int id)
         {
-            return dbContext.Cars.Where(c => c.Id == id).FirstOrDefault();
+            return carService.GetCarById(id);
         }
 
         [HttpGet("/car/allnew")]
         public List<Cars> getNewCars()
         {
-            return dbContext.Cars.Where(c => c.Unused == true).ToList();
+            return carService.GetAllNewCars();
         }
     }
 }

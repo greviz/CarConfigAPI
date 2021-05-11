@@ -1,38 +1,23 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CarConfigAPI.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarConfigAPI.Controllers
 {
     [ApiController]
     public class PartsController : ControllerBase
     {
-        CarConfigApiContext dbContext;
+        public readonly PartService partService;
 
-        public PartsController()
+        public PartsController(PartService partService)
         {
-            dbContext = new CarConfigApiContext();
+            this.partService = partService;
         }
 
         [HttpGet("/parts/car/{id}")]
-        public ActionResult<List<Parts>> getAvailableCarParts(long id)
+        public ActionResult<List<Parts>> getAvailableCarParts(int id)
         {
-            
-            List<AvailableCarParts> ids = dbContext.AvailableCarParts.Where(c => c.CarId == id).ToList();
-            List<Parts> output = new List<Parts>();
-            foreach(AvailableCarParts carPartsId in ids)
-            {
-                Parts partById = dbContext.Parts.Where(p => p.Id == carPartsId.PartId).FirstOrDefault();
-                if (partById != null)
-                {
-                    output.Add(partById);
-                }
-            }
-            return output;
+            return partService.GetAvailableCarParts(id);
         }
-
     }
 }

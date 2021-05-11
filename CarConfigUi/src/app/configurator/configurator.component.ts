@@ -10,7 +10,6 @@ import {AuthenticationService} from "../services/authentication.service";
 import {User} from "../models/user.model";
 import {ConfigurationService} from "../services/configuration.service";
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { DatePipe, formatDate } from '@angular/common';
 
 
 @Component({
@@ -24,7 +23,6 @@ export class ConfiguratorComponent implements OnInit {
 //#region Fields
 
   private user: User;
-  private currentUserConfigurationCount: number;
 
   cfg: Configuration;
   isPrivate: boolean;
@@ -83,48 +81,6 @@ export class ConfiguratorComponent implements OnInit {
 
   @ViewChildren(MatRadioButton) public allRadioButtons: MatRadioButton[];
 
-  // popDialog(){
-  //   if(this.currentUserConfigurationCount > 0)
-  //   {
-  //     const dialogRef = this.dialog.open(HelperDialogComponent, {
-  //       width: '40%',
-  //       data: {name: this.user.username}
-  //     });
-
-  //     dialogRef.afterClosed().subscribe(result => {
-  //       this.generatePreset = result;
-  //     },error1 => {},()=>{
-  //       this.setUserPreset();
-  //     });
-  //   }
-  // }
-
-  setCurrentUserConfigurationCount(){
-    this.configurationService.getConfigurationsByUserId(this.user.id).subscribe( configs =>{
-      this.currentUserConfigurationCount = configs.length;
-      //this.popDialog();
-    })
-  }
-
-  setUserPreset(){
-    if(this.generatePreset)
-    {
-      this.configurationService.getConfigurationsByUserId(this.user.id).subscribe( x =>{
-        x.sort((a,b) => a.createdOn - b.createdOn);
-        this.cfg = x[0];
-
-      }, error1 => {}, () => {
-        this.configurationService.getConfigurationPartsByConfigurationId(this.cfg.id).subscribe(p =>{
-          //const order = [  "GEARBOX", "SUSPENSION", "ENGINE", "COLOR", "RIM", "BRAKE", "CAR_SEAT", "INTERIOR_MATERIAL",
-          //     "ASSISTING_SYSTEM", "INTERIOR_EQUIPMENT", "AUDIO"];
-          //p.sort((a, b) => order.indexOf(a.secondaryType) - order.indexOf(b.secondaryType));
-          this.previousConfigurationParts = p;
-        },error1 => {},() => { this.setUserPresetParts(this.previousConfigurationParts)
-        })
-      });
-      //this.updatePrice();
-    }
-  }
 
   setUserPresetParts(parts: Part[]){
     for(let part of parts){
@@ -253,10 +209,9 @@ export class ConfiguratorComponent implements OnInit {
       this.carId = Number.parseInt(params.get('carId'));
       this.setPickedCar(this.carId);
       this.fetchParts(this.carId);
-      this.setCurrentUserConfigurationCount();
     },
         error1 => {
-
+          console.log(error1);
     },()=>{
       });
   }
@@ -327,15 +282,12 @@ export class ConfiguratorComponent implements OnInit {
                    break;}
       }
     }
-    console.log(this.mechanical.suspension)
     this.setDefaultRadioButtons()
   }
 
   fetchParts(carId: number){
     this.partService.getAvailablePartsByCarId(carId).subscribe(data =>{
-      console.log(data)
       this.parts = data;
-      console.log(this.parts)
       this.assignParts(data);
     });
   }
@@ -453,7 +405,6 @@ export class ConfiguratorComponent implements OnInit {
   save(){
     const requestBody ={
       TotalPrice: this.pickedCar.price + this.partsPrice,
-      //createdOn: formatDate(Date.now(), ),d
       Description: this.desc,
       CreatedByNavigation: this.user,
       Car: this.pickedCar,
@@ -468,17 +419,3 @@ export class ConfiguratorComponent implements OnInit {
   }
 
 }
-
-// @Component({
-//   selector: 'helper-dialog',
-//   templateUrl: './helper-dialog.html'
-// })
-// export class HelperDialogComponent {
-//   constructor(
-//     public dialogRef: MatDialogRef<HelperDialogComponent>,
-//     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-// }
-
-// export interface DialogData {
-//   name: string;
-// }

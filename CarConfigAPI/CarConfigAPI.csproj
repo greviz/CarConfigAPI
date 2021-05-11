@@ -14,7 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CarConfigAPI.Interfaces\CarConfigAPI.Interfaces.csproj" />
     <ProjectReference Include="..\CarConfigAPI.Models\CarConfigAPI.Models.csproj" />
+    <ProjectReference Include="..\CarConfigAPI.Services\CarConfigAPI.Services.csproj" />
     <ProjectReference Include="..\CarConfigAPI.ViewModels\CarConfigAPI.ViewModels.csproj" />
   </ItemGroup>
 

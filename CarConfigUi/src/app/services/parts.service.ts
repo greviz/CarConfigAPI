@@ -18,12 +18,4 @@ export class PartsService {
     })
     return this.http.get<Part[]>(this.userAPI + `/car/${id}`);
   }
-
-  public getAvailablePartsByCarIdz(id) : Part[]{
-    this.http.get<Part[]>(this.userAPI + `/car/${id}`).subscribe(x =>{
-      return x;
-    })
-    return null;
-  }
-
 }

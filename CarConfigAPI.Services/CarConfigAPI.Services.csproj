@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CarConfigAPI.Interfaces\CarConfigAPI.Interfaces.csproj" />
+    <ProjectReference Include="..\CarConfigAPI.ViewModels\CarConfigAPI.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

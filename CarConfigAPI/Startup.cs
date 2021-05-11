@@ -1,13 +1,11 @@
 using CarConfigAPI;
+using CarConfigAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarConfigurator
 {
@@ -18,6 +16,12 @@ namespace CarConfigurator
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddNewtonsoftJson();
+            services.AddDbContext<CarConfigApiContext>();
+            services.AddScoped<UserService>();
+            services.AddScoped<CarService>();
+            services.AddScoped<ConfigurationService>();
+            services.AddScoped<PartService>();
+            services.AddScoped<CommentService>();
             services.AddCors();
         }
 
@@ -38,14 +42,6 @@ namespace CarConfigurator
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
-
-                    var dbContext = new CarConfigApiContext();
-                    var content = dbContext.Users.ToList();
-                    foreach (var item in content)
-                    {
-                        await context.Response.WriteAsync(item.Login);
-                    }
-
                 });
             });
 
