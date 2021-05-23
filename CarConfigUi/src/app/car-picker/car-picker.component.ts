@@ -18,8 +18,6 @@ export class CarPickerComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
   }
 
   pickCar(id: number ){

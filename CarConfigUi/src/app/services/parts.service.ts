@@ -13,9 +13,6 @@ export class PartsService {
   }
 
   public getAvailablePartsByCarId(id): Observable<Part[]>{
-    this.http.get<Part[]>(this.userAPI + `/car/${id}`).subscribe(x =>{
-      console.log(x);
-    })
     return this.http.get<Part[]>(this.userAPI + `/car/${id}`);
   }
 }

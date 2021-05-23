@@ -16,19 +16,5 @@
         </mat-card>
       </div>
     </mat-tab>
-    <mat-tab label="OUTLET" style="min-width: 384px;">
-      <p class="pick-header"> Wybierz samochód </p>
-      <div class="card-container">
-        <mat-card *ngFor="let car of usedCars" (click)="pickCar(car.id)">
-          <mat-card-header style="text-align: center">
-            <mat-card-title>
-              {{car.brand}}
-            </mat-card-title>
-            <mat-card-subtitle> {{car.model}}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image [src]="car.imageFolder +'/' + car.brand.toLowerCase() + '_' + car.model.toLowerCase() + '_small.webp'" alt="Avatar">
-        </mat-card>
-      </div>
-    </mat-tab>
   </mat-tab-group>
 </ng-template>

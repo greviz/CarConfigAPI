@@ -234,7 +234,6 @@ export class ConfiguratorComponent implements OnInit {
   }
 
   assignParts(parts: Part[]){
-    console.log(parts)
     for (let p of parts)
     {
       switch (p.secondaryType) {
@@ -360,7 +359,6 @@ export class ConfiguratorComponent implements OnInit {
 
   setDefaultRadioButtons(){
     this.sortPartsByPrice();
-    console.log(this.mechanical.suspension)
     if(this.mechanical.gearbox.length != 0){
       this.chosenGearbox = this.mechanical.gearbox.find(x => x.price == 0);
     }

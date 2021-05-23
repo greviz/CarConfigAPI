@@ -5,15 +5,9 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarConfigAPI", "CarConfigAPI.csproj", "{4C00B8BB-AA60-4311-9C7C-D09C4038318B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarConfigAPI.Commons", "..\CarConfigAPI.Commons\CarConfigAPI.Commons.csproj", "{180FA26A-51A9-4200-A185-54BC505DFE32}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarConfigAPI.Interfaces", "..\CarConfigAPI.Interfaces\CarConfigAPI.Interfaces.csproj", "{2D793788-0F4F-41BA-8795-A65E6C7EE7D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarConfigAPI.Maps", "..\CarConfigAPI.Maps\CarConfigAPI.Maps.csproj", "{FABE5371-E206-4EA7-BE3E-FB56878AD5BE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarConfigAPI.Models", "..\CarConfigAPI.Models\CarConfigAPI.Models.csproj", "{1EB9C241-9380-4B19-AA78-232AA0F26B86}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarConfigAPI.Repositories", "..\CarConfigAPI.Repositories\CarConfigAPI.Repositories.csproj", "{CF1EA099-778D-4D7A-8877-884D842B72A4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarConfigAPI.Services", "..\CarConfigAPI.Services\CarConfigAPI.Services.csproj", "{23D42B95-6077-4A75-8324-5D1F2407FE53}"
 EndProject
@@ -29,26 +23,14 @@ Global
 		{4C00B8BB-AA60-4311-9C7C-D09C4038318B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C00B8BB-AA60-4311-9C7C-D09C4038318B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C00B8BB-AA60-4311-9C7C-D09C4038318B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{180FA26A-51A9-4200-A185-54BC505DFE32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{180FA26A-51A9-4200-A185-54BC505DFE32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{180FA26A-51A9-4200-A185-54BC505DFE32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{180FA26A-51A9-4200-A185-54BC505DFE32}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2D793788-0F4F-41BA-8795-A65E6C7EE7D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2D793788-0F4F-41BA-8795-A65E6C7EE7D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D793788-0F4F-41BA-8795-A65E6C7EE7D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D793788-0F4F-41BA-8795-A65E6C7EE7D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FABE5371-E206-4EA7-BE3E-FB56878AD5BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FABE5371-E206-4EA7-BE3E-FB56878AD5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FABE5371-E206-4EA7-BE3E-FB56878AD5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FABE5371-E206-4EA7-BE3E-FB56878AD5BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1EB9C241-9380-4B19-AA78-232AA0F26B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1EB9C241-9380-4B19-AA78-232AA0F26B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EB9C241-9380-4B19-AA78-232AA0F26B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EB9C241-9380-4B19-AA78-232AA0F26B86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF1EA099-778D-4D7A-8877-884D842B72A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF1EA099-778D-4D7A-8877-884D842B72A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF1EA099-778D-4D7A-8877-884D842B72A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF1EA099-778D-4D7A-8877-884D842B72A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23D42B95-6077-4A75-8324-5D1F2407FE53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{23D42B95-6077-4A75-8324-5D1F2407FE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D42B95-6077-4A75-8324-5D1F2407FE53}.Release|Any CPU.ActiveCfg = Release|Any CPU

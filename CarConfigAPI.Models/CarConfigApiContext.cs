@@ -249,7 +249,6 @@ namespace CarConfigAPI
                     .HasColumnType("date");
 
                 entity.Property(e => e.Description)
-                    .IsRequired()
                     .HasColumnName("description")
                     .HasColumnType("varchar(265)")
                     .HasCharSet("utf8")
